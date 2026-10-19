@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
- <url><loc>https://YOUR-DOMAIN.example/</loc></url>
- <url><loc>https://YOUR-DOMAIN.example/about.html</loc></url>
- <url><loc>https://YOUR-DOMAIN.example/history.html</loc></url>
- <url><loc>https://YOUR-DOMAIN.example/branches.html</loc></url>
- <url><loc>https://YOUR-DOMAIN.example/events.html</loc></url>
- <url><loc>https://YOUR-DOMAIN.example/gallery.html</loc></url>
- <url><loc>https://YOUR-DOMAIN.example/contact.html</loc></url>
+ <url><loc>https://malharmartandvyayamshala.github.io/</loc><lastmod>2026-10-19</lastmod></url>
+ <url><loc>https://malharmartandvyayamshala.github.io/about.html</loc><lastmod>2026-10-19</lastmod></url>
+ <url><loc>https://malharmartandvyayamshala.github.io/history.html</loc><lastmod>2026-10-19</lastmod></url>
+ <url><loc>https://malharmartandvyayamshala.github.io/archives.html</loc><lastmod>2026-10-19</lastmod></url>
+ <url><loc>https://malharmartandvyayamshala.github.io/branches.html</loc><lastmod>2026-10-19</lastmod></url>
+ <url><loc>https://malharmartandvyayamshala.github.io/events.html</loc><lastmod>2026-10-19</lastmod></url>
+ <url><loc>https://malharmartandvyayamshala.github.io/gallery.html</loc><lastmod>2026-10-19</lastmod></url>
+ <url><loc>https://malharmartandvyayamshala.github.io/contact.html</loc><lastmod>2026-10-19</lastmod></url>
 </urlset>

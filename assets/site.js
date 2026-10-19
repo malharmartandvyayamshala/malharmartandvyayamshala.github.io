@@ -64,6 +64,58 @@
     });
   }
 
+  // Archive filters: show records whose data-cat includes the chosen category
+  var filterBtns = document.querySelectorAll("[data-archive-filter]");
+  if (filterBtns.length) {
+    var records = document.querySelectorAll(".archive-item");
+    var groups = document.querySelectorAll(".archive-decade");
+    filterBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var cat = btn.getAttribute("data-archive-filter");
+        filterBtns.forEach(function (b) { b.setAttribute("aria-pressed", String(b === btn)); });
+        records.forEach(function (item) {
+          item.hidden = cat !== "all" && (" " + item.getAttribute("data-cat") + " ").indexOf(" " + cat + " ") === -1;
+        });
+        groups.forEach(function (g) { g.hidden = !g.querySelector(".archive-item:not([hidden])"); });
+      });
+    });
+  }
+
+  // Gallery filters: show cards whose data-cat matches the chosen category
+  var galleryBtns = document.querySelectorAll("[data-gallery-filter]");
+  if (galleryBtns.length) {
+    var cards = document.querySelectorAll(".gallery-page .gallery-card");
+    galleryBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var cat = btn.getAttribute("data-gallery-filter");
+        galleryBtns.forEach(function (b) { b.setAttribute("aria-pressed", String(b === btn)); });
+        cards.forEach(function (c) { c.hidden = cat !== "all" && c.getAttribute("data-cat") !== cat; });
+      });
+    });
+  }
+
+  // Archive lightbox (links still open the image directly if <dialog> is unsupported)
+  var box = document.getElementById("lightbox");
+  if (box && typeof box.showModal === "function") {
+    var boxImg = box.querySelector("img");
+    var boxLink = box.querySelector("[data-lightbox-open]");
+    document.querySelectorAll("[data-zoom]").forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        var thumb = a.querySelector("img");
+        boxImg.src = a.href;
+        boxImg.alt = thumb ? thumb.alt : "";
+        boxLink.href = a.href;
+        var cap = box.querySelector("[data-lightbox-caption]");
+        var src = a.querySelector(".gallery-caption");
+        if (cap) cap.innerHTML = src ? src.innerHTML : "";
+        box.showModal();
+      });
+    });
+    box.querySelector(".lightbox-close").addEventListener("click", function () { box.close(); });
+    box.addEventListener("click", function (e) { if (e.target === box) box.close(); });
+  }
+
   // Gentle reveal on scroll
   var items = document.querySelectorAll("main .section .container > *");
   if ("IntersectionObserver" in window) {
