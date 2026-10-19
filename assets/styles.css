@@ -22,6 +22,7 @@
   --font-body:"EB Garamond","Noto Serif Devanagari","Nirmala UI",Georgia,serif;
   --font-display:"Cormorant Garamond","Tiro Devanagari Hindi","Noto Serif Devanagari",Georgia,serif;
   --header-h:92px;
+  --strip-h:30px;
   --jali:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23d6b874' stroke-opacity='.13'%3E%3Cpath d='M28 3 53 28 28 53 3 28Z'/%3E%3Cpath d='M28 15 41 28 28 41 15 28Z'/%3E%3C/g%3E%3Ccircle cx='28' cy='28' r='2.4' fill='%23d6b874' fill-opacity='.16'/%3E%3C/svg%3E");
 }
 
@@ -51,8 +52,8 @@ p{margin:0 0 1em}
 .brand{display:flex;align-items:center;gap:14px;min-width:0}
 .brand img{width:68px;height:68px;flex:none;filter:drop-shadow(0 4px 10px rgba(0,0,0,.45))}
 .brand-name{display:flex;flex-direction:column;min-width:0}
-.brand-sub{font-family:var(--font-display);color:var(--gold-soft);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;line-height:1.4}
-html[lang="hi"] .brand-sub{letter-spacing:.04em;font-size:.88rem}
+.brand-sub{font-family:var(--font-display);color:var(--gold-soft);font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;line-height:1.4}
+html[lang="hi"] .brand-sub{letter-spacing:.04em;font-size:1.08rem}
 .brand-main{font-family:var(--font-display);color:var(--gold-pale);font-size:1.7rem;font-weight:600;line-height:1.15;white-space:nowrap}
 html[lang="hi"] .brand-main{font-weight:400;font-size:1.65rem}
 
@@ -91,13 +92,14 @@ html[lang="hi"] .eyebrow{letter-spacing:.06em;font-size:.92rem;font-weight:400}
 .section:not(.section-dark) .btn-ghost{color:var(--maroon);background:transparent}
 
 /* ---------- Home hero ---------- */
-.hero{position:relative;min-height:min(calc(100svh - var(--header-h)),880px);display:grid;place-items:center;overflow:hidden;background:var(--night);isolation:isolate}
+.hero{position:relative;min-height:min(calc(100svh - var(--header-h) - var(--strip-h)),880px);display:grid;place-items:center;overflow:hidden;background:var(--night);isolation:isolate}
 .hero-bg{position:absolute;inset:0;z-index:-2;background:var(--jali) center/cover;opacity:.3}
 .hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at center,rgba(28,9,9,.15),rgba(28,9,9,.6) 80%)}
 .hero::after{content:"";position:absolute;inset:20px;border:1px solid rgba(214,184,116,.3);outline:1px solid rgba(214,184,116,.12);outline-offset:6px;pointer-events:none}
 .hero-inner{position:relative;text-align:center;color:var(--gold-pale);max-width:1000px;padding:80px 24px}
 .hero-emblem{width:clamp(140px,18vw,200px);height:auto;margin:0 auto 22px;filter:drop-shadow(0 14px 28px rgba(0,0,0,.55))}
-.hero .eyebrow{color:var(--gold-soft)}
+.hero .eyebrow{color:var(--gold-soft);font-size:1.05rem}
+html[lang="hi"] .hero .eyebrow{font-size:1.35rem}
 .hero h1{color:#fbefd0;font-size:clamp(2.1rem,5vw,4.2rem);margin:6px 0 4px;text-shadow:0 4px 24px rgba(0,0,0,.6)}
 .hero h2{color:var(--gold-soft);font-size:clamp(1.1rem,2.3vw,1.6rem);font-weight:500;font-style:italic;margin:10px 0}
 html[lang="hi"] .hero h2{font-style:normal}
@@ -198,7 +200,7 @@ html[lang="hi"] .heritage-quote{font-style:normal;font-size:1.2rem}
 /* ---------- Responsive ---------- */
 @media (max-width:1340px){
   .menu-toggle{display:grid}
-  .site-nav{position:fixed;top:var(--header-h);left:0;right:0;bottom:0;flex-direction:column;align-items:stretch;gap:0;padding:12px 24px 32px;background:var(--jali),var(--night);overflow-y:auto;transform:translateX(100%);visibility:hidden;transition:transform .35s ease,visibility .35s}
+  .site-nav{position:fixed;top:calc(var(--header-h) + var(--strip-h));left:0;right:0;bottom:0;flex-direction:column;align-items:stretch;gap:0;padding:12px 24px 32px;background:var(--jali),var(--night);overflow-y:auto;transform:translateX(100%);visibility:hidden;transition:transform .35s ease,visibility .35s}
   .site-nav.open{transform:none;visibility:visible}
   .nav-list{flex-direction:column;align-items:stretch}
   .nav-list a{padding:14px 4px;font-size:1.25rem;border-bottom:1px solid var(--line-soft)}
@@ -218,8 +220,11 @@ html[lang="hi"] .heritage-quote{font-style:normal;font-size:1.2rem}
   :root{--header-h:76px}
   .brand{gap:10px}
   .brand img{width:52px;height:52px}
-  .brand-sub{font-size:.62rem;letter-spacing:.08em}
-  html[lang="hi"] .brand-sub{font-size:.74rem}
+  .brand-sub{font-size:.72rem;letter-spacing:.08em}
+  html[lang="en"] .brand-sub{letter-spacing:.03em;white-space:nowrap;font-size:.7rem}
+  html[lang="en"] .brand-main{font-size:1.02rem}
+  .hero .eyebrow{letter-spacing:.1em}
+  html[lang="hi"] .brand-sub{font-size:.86rem}
   .brand-main,html[lang="hi"] .brand-main{font-size:1.12rem;white-space:normal}
   .footer-grid{grid-template-columns:1fr}
   .footer-bottom{flex-direction:column}
@@ -383,7 +388,7 @@ html[lang="hi"] .heritage-close .lead{font-style:normal;font-size:1.3rem}
 .calendar strong{font-family:var(--font-display);font-size:1.3rem;font-weight:500;color:var(--maroon);line-height:1.3;margin:4px 0}
 .cal-month{font-size:.85rem;color:var(--muted)}
 .event-rows .container{display:grid;gap:clamp(56px,8vw,96px)}
-.event-row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);align-items:center;scroll-margin-top:calc(var(--header-h) + 24px)}
+.event-row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px);align-items:center;scroll-margin-top:calc(var(--header-h) + var(--strip-h) + 24px)}
 .event-row:nth-child(even) > figure{order:2}
 .event-row h2{font-size:clamp(1.9rem,3.4vw,2.6rem)}
 .event-row .event-no{font-size:3rem}
@@ -413,7 +418,7 @@ html[lang="hi"] .heritage-close .lead{font-style:normal;font-size:1.3rem}
 .archive-decade-title{display:flex;align-items:center;gap:16px;font-size:clamp(1.5rem,3vw,2rem);margin:0 0 22px}
 .archive-decade-title::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--gold),transparent)}
 .archive-list{display:grid;gap:20px}
-.archive-item{display:grid;grid-template-columns:200px 1fr;gap:26px;padding:22px;background:#fffaf0;border:1px solid var(--line);border-left:3px solid var(--gold);scroll-margin-top:calc(var(--header-h) + 16px)}
+.archive-item{display:grid;grid-template-columns:200px 1fr;gap:26px;padding:22px;background:#fffaf0;border:1px solid var(--line);border-left:3px solid var(--gold);scroll-margin-top:calc(var(--header-h) + var(--strip-h) + 16px)}
 .archive-item[hidden]{display:none}
 .archive-thumbs{display:grid;gap:10px;align-content:start}
 .archive-thumb{display:block;position:relative;background:var(--parchment);border:1px solid var(--line-soft);overflow:hidden;cursor:zoom-in}
@@ -510,3 +515,29 @@ html[lang="hi"] .heritage-close .lead{font-style:normal;font-size:1.3rem}
 .award-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
 .award-list li{display:flex;gap:16px;align-items:baseline;padding:12px 16px;background:#fffaf0;border:1px solid var(--line)}
 .award-list strong{flex:none;font-family:var(--font-display);font-size:1.4rem;color:var(--gold)}
+
+/* ---------- Compact footer ---------- */
+.site-footer{padding-top:40px;font-size:.95rem;line-height:1.6}
+.footer-grid{grid-template-columns:1.4fr 1.1fr 1fr 1.3fr;gap:32px}
+.footer-brand .brand{margin-bottom:10px}
+.footer-brand .brand img{width:52px;height:52px}
+.footer-brand .brand-main{font-size:1.2rem}
+.footer-brand p{margin:0;font-size:.92rem}
+.site-footer h3{font-size:1.1rem;margin-bottom:10px}
+.footer-links{grid-template-columns:repeat(2,auto);justify-content:start;column-gap:28px;row-gap:4px}
+.site-footer address{line-height:1.6}
+.map-link{margin-top:6px}
+.footer-contact{gap:6px;margin-bottom:12px}
+.social a{width:36px;height:36px}
+.social svg{width:16px;height:16px}
+.footer-bottom{margin-top:28px;padding:14px 0 16px;font-size:.85rem}
+@media (max-width:900px){.footer-grid{gap:24px}}
+@media (max-width:600px){.site-footer{padding-top:32px}.footer-bottom{gap:4px}}
+
+/* ---------- Slogan strip ---------- */
+.jay-strip{height:var(--strip-h);display:flex;align-items:center;justify-content:space-between;gap:12px;width:min(1320px,100% - 32px);margin-inline:auto;font-family:"Tiro Devanagari Hindi","Noto Serif Devanagari",serif;font-size:.95rem;letter-spacing:.03em;color:var(--gold-soft);white-space:nowrap}
+.jay-strip span:nth-child(2){color:var(--gold-pale)}
+.site-header{border-top:0}
+.jay-strip::after{content:none}
+@media (max-width:600px){:root{--strip-h:26px}.jay-strip{font-size:.78rem;gap:8px}}
+@media (max-width:360px){.jay-strip{font-size:.7rem}}
