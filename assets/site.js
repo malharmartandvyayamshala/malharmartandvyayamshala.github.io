@@ -51,7 +51,8 @@
   // Branch search (matches Hindi and English text)
   var q = document.getElementById("branch-q");
   if (q) {
-    var rows = document.querySelectorAll("#branch-list > li");
+    var rows = document.querySelectorAll("#branch-list li.branch");
+    var groups = document.querySelectorAll("#branch-list .branch-group");
     var empty = document.getElementById("branch-empty");
     q.addEventListener("input", function () {
       var term = q.value.trim().toLowerCase(), shown = 0;
@@ -60,6 +61,7 @@
         li.hidden = !hit;
         if (hit) shown++;
       });
+      groups.forEach(function (g) { g.hidden = !g.querySelector("li.branch:not([hidden])"); });
       empty.hidden = shown > 0;
     });
   }

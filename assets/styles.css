@@ -355,7 +355,7 @@ html[lang="hi"] .heritage-close .lead{font-style:normal;font-size:1.3rem}
 .branch-card{position:relative;display:flex;flex-direction:column;padding:30px 26px 24px;background:linear-gradient(180deg,#fffaf0,#f8efdc);border:1px solid var(--line);border-top:3px solid var(--gold);transition:transform .3s,box-shadow .3s}
 .branch-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
 .branch-no{position:absolute;top:18px;right:22px;font-family:var(--font-display);font-size:1.9rem;font-weight:600;color:rgba(182,141,64,.45);line-height:1}
-.branch-card h3{font-size:1.35rem;margin:0 40px 10px 0}
+.branch-card h3{font-size:1.35rem;margin:0 0 10px}
 .branch-area{display:flex;align-items:flex-start;gap:6px;color:var(--muted);font-size:.96rem;margin:0}
 .branch-area svg{width:16px;height:16px;flex:none;margin-top:.35em;color:var(--saffron)}
 .branch-map{margin-top:auto;padding-top:18px;font-family:var(--font-display);font-size:1rem;color:var(--maroon);border-bottom:1px solid transparent;align-self:flex-start}
@@ -366,7 +366,7 @@ html[lang="hi"] .heritage-close .lead{font-style:normal;font-size:1.3rem}
 #branch-list{list-style:none;margin:0;padding:0}
 #branch-list .branch{align-items:center}
 #branch-list .branch[hidden]{display:none}
-#branch-list .branch-mark{flex:none;width:34px;height:34px;display:grid;place-items:center;border-radius:50%;background:var(--maroon);color:var(--gold-pale);font-family:var(--font-display);font-size:.95rem;line-height:1}
+#branch-list .branch-mark{flex:none;width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:var(--maroon);color:var(--gold-soft);font-size:.8rem;line-height:1}
 #branch-list strong{display:block;font-weight:500;line-height:1.45}
 #branch-list .branch-area{display:block;font-size:.9rem}
 #branch-list > li > div{flex:1}
@@ -379,8 +379,8 @@ html[lang="hi"] .heritage-close .lead{font-style:normal;font-size:1.3rem}
 .event-card h3 a{transition:color .2s}
 .event-card h3 a::after{content:"";position:absolute;inset:0}
 .event-card h3 a:hover{color:var(--saffron)}
-.calendar{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);position:relative;counter-reset:cal}
-.calendar::before{content:"";position:absolute;top:22px;left:10%;right:10%;height:1px;background:var(--gold)}
+.calendar{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);position:relative;counter-reset:cal}
+.calendar::before{content:"";position:absolute;top:22px;left:8%;right:8%;height:1px;background:var(--gold)}
 .calendar a{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 10px}
 .calendar a::before{content:"";width:16px;height:16px;transform:rotate(45deg);margin:15px 0 22px;background:var(--gold-pale);border:1px solid var(--gold);box-shadow:0 0 0 5px var(--ivory);transition:background .25s}
 .calendar a:hover::before{background:var(--maroon)}
@@ -507,8 +507,8 @@ html[lang="hi"] .heritage-close .lead{font-style:normal;font-size:1.3rem}
 .faq details[open]{border-color:var(--gold);box-shadow:var(--shadow)}
 .faq summary{position:relative;cursor:pointer;list-style:none;padding:18px 56px 18px 22px;font-family:var(--font-display);font-size:1.2rem;color:var(--maroon)}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);width:28px;height:28px;display:grid;place-items:center;border:1px solid var(--gold);border-radius:50%;font-size:1.1rem;color:var(--gold)}
-.faq details[open] summary::after{content:"−"}
+.faq summary::after{content:"";position:absolute;right:20px;top:50%;transform:translateY(-50%);width:28px;height:28px;box-sizing:border-box;border:1px solid var(--gold);border-radius:50%;background:linear-gradient(var(--gold),var(--gold)) center/11px 1.5px no-repeat,linear-gradient(var(--gold),var(--gold)) center/1.5px 11px no-repeat;transition:background-color .2s}
+.faq details[open] summary::after{background:linear-gradient(var(--gold),var(--gold)) center/11px 1.5px no-repeat}
 .faq details p{margin:0;padding:0 22px 20px;color:var(--muted)}
 .fact-note{padding:14px 18px;border-left:2px solid var(--gold);background:rgba(182,141,64,.08);font-size:.98rem}
 .awards-title{font-size:1.5rem;margin:28px 0 14px}
@@ -541,3 +541,31 @@ html[lang="hi"] .heritage-close .lead{font-style:normal;font-size:1.3rem}
 .jay-strip::after{content:none}
 @media (max-width:600px){:root{--strip-h:26px}.jay-strip{font-size:.78rem;gap:8px}}
 @media (max-width:360px){.jay-strip{font-size:.7rem}}
+
+/* Home: six yearly events in a 3 x 2 grid */
+.event-grid-6{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:900px){.event-grid-6{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.event-grid-6{grid-template-columns:1fr}}
+
+figure.image-frame.branch-banner{margin:0 auto 64px}
+
+
+/* ---------- Ustad tenure years ---------- */
+.guru-years,.lineage-years{display:block;margin-top:4px;font-family:var(--font-display);font-size:1rem;letter-spacing:.06em;color:var(--saffron)}
+.guru-card .guru-years{margin:-6px 0 10px}
+
+/* ---------- Jaikaras (Events) ---------- */
+.jaikara{margin-top:32px;padding:26px 28px;text-align:center;background:var(--jali),linear-gradient(180deg,var(--oxblood),var(--night));color:#eedfbd;border:1px solid var(--gold);box-shadow:var(--shadow)}
+.jaikara h3{color:var(--gold-pale);font-size:1.5rem;margin-bottom:.4em}
+.jaikara>p{margin:0 auto 14px;max-width:640px;font-size:.98rem;color:#d9c79e}
+.jaikara p.jaikara-call{max-width:none;font-family:"Tiro Devanagari Hindi","Noto Serif Devanagari",serif;font-size:clamp(1.6rem,3.4vw,2.2rem);color:var(--gold-soft) !important;margin:6px 0 16px !important;letter-spacing:.02em}
+.jaikara-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.jaikara-list li{padding:6px 16px;border:1px solid var(--line);background:rgba(182,141,64,.1);font-family:"Tiro Devanagari Hindi","Noto Serif Devanagari",serif;font-size:1.1rem;color:var(--gold-pale)}
+
+/* ---------- Branch groups ---------- */
+.branch-group{margin-top:34px}
+.branch-group:first-child{margin-top:0}
+.branch-group[hidden]{display:none}
+.branch-group-title{display:flex;align-items:center;gap:12px;font-size:1.4rem;margin:0 0 16px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.branch-count{display:inline-grid;place-items:center;min-width:28px;height:28px;padding:0 8px;border-radius:999px;background:var(--maroon);color:var(--gold-pale);font-size:.85rem;line-height:1}
+#branch-list .branch-grid{list-style:none;margin:0;padding:0}
